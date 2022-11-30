@@ -65,7 +65,10 @@ def build_model():
         [
             ("vect", CountVectorizer(tokenizer=tokenize)),
             ("tfidf", TfidfTransformer()),
-            ("classifier", MultiOutputClassifier(RandomForestClassifier())),
+            (
+                "classifier",
+                MultiOutputClassifier(RandomForestClassifier(n_estimators=10)),
+            ),
         ]
     )
 
